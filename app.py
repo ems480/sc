@@ -999,7 +999,7 @@ def initiate_payment():
         data = request.json
         phone = data.get("phone")
         amount = data.get("amount")
-        correspondent - data.get("correspondent")
+        correspondent = data.get("correspondent")
         if not phone or not amount:
             return jsonify({"error": "Missing phone or amount"}), 400
 
@@ -6124,6 +6124,7 @@ def get_pending_loans():
 # # #         init_db()
 # # #     port = int(os.environ.get("PORT", 5000))
 # # #     app.run(host="0.0.0.0", port=port)
+
 
 
 
