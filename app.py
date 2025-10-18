@@ -1010,7 +1010,7 @@ def initiate_payment():
             "depositId": deposit_id,
             "amount": str(amount),
             "currency": "ZMW",
-            "correspondent": correspondent #"MTN_MOMO_ZMB",
+            "correspondent": str(correspondent), #"MTN_MOMO_ZMB",
             "payer": {"type": "MSISDN", "address": {"value": phone}},
             "customerTimestamp": customer_ts,
             "statementDescription": "StudyCraftPay",
@@ -6124,6 +6124,7 @@ def get_pending_loans():
 # # #         init_db()
 # # #     port = int(os.environ.get("PORT", 5000))
 # # #     app.run(host="0.0.0.0", port=port)
+
 
 
 
