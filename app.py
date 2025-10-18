@@ -999,7 +999,8 @@ def initiate_payment():
         data = request.json
         phone = data.get("phone")
         amount = data.get("amount")
-        correspondent = data.get("correspondent")
+        correspondent = data.get("correspondent", "MTN_MOMO_ZMB")
+        currency = data.get("currency", "ZMW")
         if not phone or not amount:
             return jsonify({"error": "Missing phone or amount"}), 400
 
@@ -1009,8 +1010,8 @@ def initiate_payment():
         payload = {
             "depositId": deposit_id,
             "amount": str(amount),
-            "currency": "ZMW",
-            "correspondent": str(correspondent), #"MTN_MOMO_ZMB",
+            "currency": currency,
+            "correspondent": correspondent,
             "payer": {"type": "MSISDN", "address": {"value": phone}},
             "customerTimestamp": customer_ts,
             "statementDescription": "StudyCraftPay",
@@ -6124,6 +6125,7 @@ def get_pending_loans():
 # # #         init_db()
 # # #     port = int(os.environ.get("PORT", 5000))
 # # #     app.run(host="0.0.0.0", port=port)
+
 
 
 
